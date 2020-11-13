@@ -92,7 +92,8 @@
     }
   }
 
-  &__radio-input:checked ~ &__radio-label &__radio-button::after {
+  &__radio-input:checked ~ &__radio-label &__radio-button::after,
+  &__radio-input:focus ~ &__radio-label &__radio-button::after {
     opacity: 1;
   }
 }
