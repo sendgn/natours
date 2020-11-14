@@ -4,30 +4,39 @@
   position: fixed;
   top: 0;
   left: 0;
-  background-color: rgba($color-black, .9);
+  background-color: rgba($color-black, 0.9);
   z-index: 9999;
   opacity: 0;
   visibility: hidden;
-  transition: all .3s;
+  transition: all 0.3s;
 
   &__content {
     @include absCenter;
-    width: 75%;    
+    width: 75%;
     background-color: $color-white;
-    box-shadow: 0 2rem 4rem rgba($color-black, .2);
+    box-shadow: 0 2rem 4rem rgba($color-black, 0.2);
     border-radius: 3px;
     display: table;
     overflow: hidden;
     opacity: 0;
     transform: translate(-50%, -50%) scale(0.25);
-    transition: all .5s .2s;
+    transition: all 0.5s 0.2s;
+
+    @include respond(tab-land) {
+      display: block;
+      text-align: center;
+    }
   }
 
   &__left {
     width: 33.3333333%;
     display: table-cell;
+
+    @include respond(tab-land) {
+      display: none;
+    }
   }
-  
+
   &__right {
     width: 66.6666667%;
     display: table-cell;
@@ -50,6 +59,11 @@
 
     // auto value doesn't work in Chrome
     hyphens: auto;
+
+    @include respond(tab-land) {
+      text-align: left;
+      margin-top: 1.5rem;
+    }
   }
 
   // Open states
@@ -73,7 +87,7 @@
       font-size: 3rem;
       text-decoration: none;
       display: inline-block;
-      transition: all .2s;
+      transition: all 0.2s;
       line-height: 1;
     }
 
