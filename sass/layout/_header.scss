@@ -1,5 +1,5 @@
 .header {
-  height: 95vh;
+  height: 85vh;
   background-image: linear-gradient(
       to right bottom,
       rgba($color-primary-light, 0.8),
@@ -9,22 +9,32 @@
   background-size: cover;
   background-position: top;
   position: relative;
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 
-  @include respond(phone) {
-    clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+  // This is called a feature query
+  // It gets applied only when it's supported by the browser
+  @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    height: 95vh;
   }
 
   // Load the bigger image if density of the screen
   // is bigger than 192dpi and width is larger than 600px
   // 1em = 16px
-  @media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em) {
+  // -webkit... for the older versions of Safari
+  @media (min-resolution: 192dpi) and (min-width: 37.5em),
+    (-webkit-min-device-pixel-ratio: 2),
+    (min-width: 125em) {
     background-image: linear-gradient(
         to right bottom,
         rgba($color-primary-light, 0.8),
         rgba($color-primary-dark, 0.8)
       ),
       url(../img/hero.jpg);
+  }
+
+  @include respond(phone) {
+    clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
   }
 
   &__logo-box {
