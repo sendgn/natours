@@ -22,9 +22,9 @@
   // is bigger than 192dpi and width is larger than 600px
   // 1em = 16px
   // -webkit... for the older versions of Safari
-  @media (min-resolution: 192dpi) and (min-width: 37.5em),
-    (-webkit-min-device-pixel-ratio: 2),
-    (min-width: 125em) {
+  @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+    only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (min-width: 125em) {
     background-image: linear-gradient(
         to right bottom,
         rgba($color-primary-light, 0.8),
