@@ -6,7 +6,6 @@
   box-sizing: inherit;
 }
 
-
 html {
   // This defines what 1rem is
   // 1rem = 10px, (10px / 16px) * 100% = 62.5%
@@ -18,7 +17,7 @@ html {
   }
 
   @include respond(tab-port) {
-    // 1rem = 8px, (8 / 16) * 100 = 50% 
+    // 1rem = 8px, (8 / 16) * 100 = 50%
     font-size: 50%;
   }
 
